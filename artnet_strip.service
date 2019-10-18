@@ -1,0 +1,17 @@
+[Unit]
+    Description=LED Strip control via ArtNet
+    Requires=olad.service
+    After=olad.service
+    StartLimitIntervalSec=10min
+
+[Service]
+    User=felix
+    Group=felix
+    ExecStart=/usr/bin/python /home/felix/dmx/artnet_strip.py
+    Type=simple
+    WatchdogSec=36000
+    Restart=always
+
+[Install]
+    WantedBy=multi-user.target
+
