@@ -64,16 +64,17 @@ def draw(data):
   strip.show()
   print('Finished drawing.')
 
-# Show colour on startup
-draw([15, 15, 125])
+if __name__ == '__main__':
+  # Show colour on startup
+  draw([15, 15, 125])
 
-# Register DMX universe
-wrapper = ClientWrapper()
-client = wrapper.Client()
-client.RegisterUniverse(DMX_UNIVERSE, client.REGISTER, draw)
-wrapper.Run()
+  # Register DMX universe
+  wrapper = ClientWrapper()
+  client = wrapper.Client()
+  client.RegisterUniverse(DMX_UNIVERSE, client.REGISTER, draw)
+  wrapper.Run()
 
-# Turn off on shutdown
-draw([0, 0, 0])
+  # Turn off on shutdown
+  draw([0, 0, 0])
 
-print('Exiting.')
+  print('Exiting.')
