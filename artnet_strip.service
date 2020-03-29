@@ -5,9 +5,9 @@
     StartLimitIntervalSec=10min
 
 [Service]
-    User=felix
-    Group=felix
-    ExecStart=/usr/bin/python /home/felix/dmx/artnet_strip.py
+    User=pi
+    Group=pi
+    ExecStart=/usr/bin/python /home/pi/rpi_artnet_strip/artnet_strip.py
     Type=simple
     WatchdogSec=36000
     Restart=always
