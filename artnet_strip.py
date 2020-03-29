@@ -35,14 +35,12 @@ def cancel_draw(data):
 # The strip is split into as many sections as required
 # data can be any iterable, from DMX we expect byte arrays
 def draw(data):
-  print('Start message receive...')
   # Find out how many segments the strip should get split into
   # If the data sent doesn't divide evenly into segments, some bytes will be ignored
   num_segments = int(min(\
                      STRIP_MAX_SEGMENTS,\
                      math.floor(len(data)/DMX_BYTES_PER_SEGMENT)\
                     ))
-  print('Will draw ' + str(num_segments) + ' segments.')
 
   # Determine how many LEDs belong to each segment
   leds_per_segment = int(math.ceil(LED_COUNT/num_segments))
@@ -57,12 +55,9 @@ def draw(data):
     except ValueError:
       cancel_draw(data)
       return
-    print('CH: ', fixture, ', R: ', r, ', G: ', g, ', B: ', b)
 
-  print('Finished message receive, start drawing ...')
   # Draw to all LEDs
   strip.show()
-  print('Finished drawing.')
 
 if __name__ == '__main__':
   # Show colour on startup
