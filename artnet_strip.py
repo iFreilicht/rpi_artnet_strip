@@ -22,7 +22,7 @@ strip.begin()
 # The maximum number of segments the LED strip is divided in
 # If more bytes are received, they are ignored.
 # If less bytes are received, the strip will be divided into less segements
-STRIP_MAX_SEGMENTS = 16
+STRIP_MAX_SEGMENTS = LED_COUNT
 DMX_BYTES_PER_SEGMENT = 3 # For RGB
 DMX_UNIVERSE = 1
 
